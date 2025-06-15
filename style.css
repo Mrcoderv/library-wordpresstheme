@@ -1,0 +1,392 @@
+/*
+Theme Name: Live Library Management
+Description: A comprehensive WordPress theme for managing live book libraries with multi-tenant support. Allows different libraries to manage their own user base and book collections.
+Version: 1.0.0
+Author: OpenHands
+Text Domain: library-theme
+Domain Path: /languages
+*/
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+.site-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.site-title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+
+.site-description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+/* Navigation */
+.main-navigation {
+    margin-top: 1rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+/* User Actions */
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #667eea;
+}
+
+/* Main Content */
+.site-main {
+    padding: 2rem 0;
+    min-height: calc(100vh - 200px);
+}
+
+/* Book Grid */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.book-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.book-cover {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: linear-gradient(45deg, #f0f0f0, #e0e0e0);
+}
+
+.book-info {
+    padding: 1.5rem;
+}
+
+.book-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.book-author {
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.book-description {
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.book-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.book-status {
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+.status-available {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.status-borrowed {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Search and Filters */
+.search-filters {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.search-form {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: end;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e9ecef;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+/* User Dashboard */
+.dashboard {
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.dashboard-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Tables */
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.data-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.data-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #343a40;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .nav-menu {
+        justify-content: center;
+        margin-top: 1rem;
+    }
+    
+    .user-actions {
+        justify-content: center;
+    }
+    
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+
+/* Loading States */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Alerts */
+.alert {
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
